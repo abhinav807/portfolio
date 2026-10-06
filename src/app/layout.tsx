@@ -12,13 +12,13 @@ import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["400", "500", "600", "700"],
+  weight: "variable",
 });
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: "variable",
 });
 
 const clashDisplay = localFont({
@@ -106,6 +106,9 @@ export default function RootLayout({
           clashDisplay.variable
         )}
       >
+        <noscript>
+          <style>{`[style*="opacity:0"],[style*="opacity: 0"]{opacity:1!important;filter:none!important;transform:none!important}`}</style>
+        </noscript>
         <link
           rel="preconnect"
           href="https://github-contributions-api.jogruber.de"

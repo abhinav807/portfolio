@@ -545,5 +545,3 @@ export function ProjectVisual({
       return null;
   }
 }
-
-export { Check, Play, Search, ShieldCheck, TriangleAlert };

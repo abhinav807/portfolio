@@ -19,7 +19,6 @@ interface BlurFadeProps {
   duration?: number;
   delay?: number;
   yOffset?: number;
-  inView?: boolean;
   inViewMargin?: string;
   blur?: string;
 }
@@ -30,7 +29,6 @@ const BlurFade = ({
   duration = 0.4,
   delay = 0,
   yOffset = 6,
-  inView = false,
   inViewMargin = "-50px",
   blur = "6px",
 }: BlurFadeProps) => {
@@ -40,7 +38,6 @@ const BlurFade = ({
     once: true,
     ...(inViewMargin ? { margin: inViewMargin as any } : {})
   });
-  const inReach = !inView || inViewResult;
   const [settled, setSettled] = useState(false);
   const defaultVariants: Variants = {
     hidden: { y: -yOffset, opacity: 0, filter: `blur(${blur})` },
@@ -48,19 +45,35 @@ const BlurFade = ({
   };
   const combinedVariants = variant || defaultVariants;
   const instant = prefersReducedMotion === true;
-  const reveal = instant || settled || inReach;
+  const reveal = instant || settled || inViewResult;
 
-  // Safety net: if the reveal never completes, swap to a plain visible container.
-  // Skipped when the element already finished animating so there is no flash.
+  // Safety net 1: if the element is within the viewport but the intersection
+  // observer never fired (e.g. unsupported), force it visible after a grace
+  // period so content can never be stranded.
   useEffect(() => {
     if (prefersReducedMotion) return;
+    const id = window.setTimeout(() => {
+      const el = ref.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const inViewport =
+        rect.top < window.innerHeight && rect.bottom > 0 && rect.height > 0;
+      if (inViewport && !inViewResult) setSettled(true);
+    }, 2000);
+    return () => window.clearTimeout(id);
+  }, [prefersReducedMotion, inViewResult]);
+
+  // Safety net 2: once revealed, if the animation never completes (opacity
+  // still low after its window), swap to a plain visible container.
+  useEffect(() => {
+    if (prefersReducedMotion || !inViewResult) return;
     const id = window.setTimeout(() => {
       const el = ref.current;
       const opacity = el ? parseFloat(getComputedStyle(el).opacity) : 0;
       if (!el || Number.isNaN(opacity) || opacity < 0.95) setSettled(true);
     }, (delay + duration + 0.8) * 1000);
     return () => window.clearTimeout(id);
-  }, [delay, duration, prefersReducedMotion]);
+  }, [delay, duration, prefersReducedMotion, inViewResult]);
 
   if (settled) {
     return (

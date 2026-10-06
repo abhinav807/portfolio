@@ -5,17 +5,10 @@ import {
   Code2,
   Compass,
   Globe,
-  MapPin,
   MonitorSmartphone,
   ScanEye,
-  ShoppingBag,
-  ShieldCheck,
   Sparkles,
   Terminal,
-  Video,
-  Scale,
-  Map as MapIcon,
-  Camera,
 } from "lucide-react";
 import { Icons } from "@/components/icons";
 
@@ -556,14 +549,4 @@ export const CONTACT = {
     { label: "LinkedIn", href: SITE.linkedin, icon: Icons.linkedin },
     { label: "Email", href: `mailto:${SITE.email}`, icon: Icons.email },
   ],
-};
-
-export const PROJECT_ICONS = {
-  map: MapIcon,
-  meeting: Video,
-  legal: Scale,
-  face: Camera,
-  shield: ShieldCheck,
-  commerce: ShoppingBag,
-  location: MapPin,
 };
