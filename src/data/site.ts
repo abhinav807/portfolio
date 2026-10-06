@@ -25,7 +25,7 @@ export const SITE = {
   location: "Delhi NCR, India",
   locationShort: "Delhi, India",
   email: "goldenhourdelhi@gmail.com",
-  url: "https://portfolio-magicui.vercel.app",
+  url: "https://abhinavgoyal.vercel.app",
   github: "https://github.com/abhinav807",
   githubUsername: "abhinav807",
   githubAvatar: "https://avatars.githubusercontent.com/u/145897718?v=4",
