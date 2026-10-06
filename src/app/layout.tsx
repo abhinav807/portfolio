@@ -58,6 +58,11 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    title: "Abhinav Goyal — Student Builder, Developer & Founder",
+    description: SITE.description,
+    card: "summary_large_image",
     images: [
       {
         url: "/opengraph-image",
@@ -66,11 +71,6 @@ export const metadata: Metadata = {
         alt: "Abhinav Goyal — Student Builder, Developer & Founder",
       },
     ],
-  },
-  twitter: {
-    title: "Abhinav Goyal — Student Builder, Developer & Founder",
-    description: SITE.description,
-    card: "summary_large_image",
   },
   robots: {
     index: true,
@@ -86,10 +86,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#111111" },
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-  ],
+  themeColor: "#111111",
   width: "device-width",
   initialScale: 1,
 };
@@ -109,6 +106,12 @@ export default function RootLayout({
           clashDisplay.variable
         )}
       >
+        <link
+          rel="preconnect"
+          href="https://github-contributions-api.jogruber.de"
+          crossOrigin="anonymous"
+        />
+        <link rel="preconnect" href="https://avatars.githubusercontent.com" />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
