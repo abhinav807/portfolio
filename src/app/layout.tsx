@@ -8,6 +8,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
+import { Analytics } from "@vercel/analytics/next";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -151,6 +152,7 @@ export default function RootLayout({
             </div>
             <SiteFooter />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
