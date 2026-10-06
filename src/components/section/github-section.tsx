@@ -33,7 +33,6 @@ export default function GithubSection() {
                 width={56}
                 height={56}
                 className="size-14 shrink-0 rounded-full border border-border"
-                unoptimized
               />
               <div className="min-w-0">
                 <p className="truncate font-display text-lg leading-tight tracking-tight">

@@ -1,8 +1,10 @@
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
+import MobileCTA from "@/components/mobile-cta";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SITE } from "@/data/site";
 import { cn } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
@@ -150,6 +152,8 @@ export default function RootLayout({
               </main>
             </div>
             <SiteFooter />
+            <MobileCTA />
+            <Analytics />
         </ThemeProvider>
       </body>
     </html>
