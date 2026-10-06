@@ -11,7 +11,7 @@ export default function WebsitesSection() {
   return (
     <section
       id="websites"
-      className="scroll-mt-24 pt-20 sm:pt-28"
+      className="pt-20 sm:pt-28"
       aria-label="Websites I have built"
     >
       <SectionHeader
@@ -75,7 +75,7 @@ export default function WebsitesSection() {
                     href={site.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-fit items-center gap-1.5 font-mono text-xs text-foreground transition-colors hover:text-gold"
+                    className="inline-flex w-fit items-center gap-1.5 py-2 font-mono text-xs text-foreground transition-colors hover:text-gold"
                   >
                     {site.domain}
                     <ArrowUpRight

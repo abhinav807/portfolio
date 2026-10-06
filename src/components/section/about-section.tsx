@@ -6,7 +6,7 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function AboutSection() {
   return (
-    <section id="about" className="scroll-mt-24 pt-20 sm:pt-28" aria-label="About">
+    <section id="about" className="pt-20 sm:pt-28" aria-label="About">
       <SectionHeader
         eyebrow="About"
         title="I like building things."

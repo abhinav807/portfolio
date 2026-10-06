@@ -35,6 +35,7 @@ function Frame({
 }) {
   return (
     <div
+      aria-hidden="true"
       className={cn(
         "preview-grid relative flex aspect-[16/10] w-full flex-col overflow-hidden rounded-t-xl border-b border-border bg-background/50",
         className

@@ -4,12 +4,13 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { NAV, SOCIALS } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string>("#home");
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -41,11 +42,19 @@ export default function SiteHeader() {
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape" && open) {
+        const menu = document.getElementById("mobile-menu");
+        const focusInMenu =
+          menu !== null &&
+          document.activeElement !== null &&
+          menu.contains(document.activeElement);
+        setOpen(false);
+        if (focusInMenu) menuButtonRef.current?.focus();
+      }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+  }, [open]);
 
   return (
     <header
@@ -79,7 +88,7 @@ export default function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              aria-current={active === item.href ? "page" : undefined}
+              aria-current={active === item.href ? "location" : undefined}
               className={cn(
                 "rounded-md px-2.5 py-2 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors",
                 active === item.href
@@ -101,6 +110,7 @@ export default function SiteHeader() {
             Contact
           </a>
           <button
+            ref={menuButtonRef}
             type="button"
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
@@ -128,7 +138,7 @@ export default function SiteHeader() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              aria-current={active === item.href ? "page" : undefined}
+              aria-current={active === item.href ? "location" : undefined}
               className={cn(
                 "border-b border-border/60 py-3 font-mono text-xs uppercase tracking-[0.16em] transition-colors last:border-b-0",
                 active === item.href

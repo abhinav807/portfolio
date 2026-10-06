@@ -13,8 +13,17 @@ export function ModeToggle({ className }: { className?: string }) {
       type="button"
       variant="ghost"
       size="icon"
-      aria-label="Toggle colour theme"
-      title="Toggle colour theme"
+      aria-label={
+        resolvedTheme === "dark"
+          ? "Switch to light theme"
+          : "Switch to dark theme"
+      }
+      title={
+        resolvedTheme === "dark"
+          ? "Switch to light theme"
+          : "Switch to dark theme"
+      }
+      suppressHydrationWarning
       className={cn(
         "size-9 rounded-lg border border-border text-foreground hover:bg-muted hover:text-foreground focus-visible:outline-ring",
         className

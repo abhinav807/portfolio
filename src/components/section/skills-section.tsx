@@ -8,7 +8,7 @@ export default function SkillsSection() {
   return (
     <section
       id="skills"
-      className="scroll-mt-24 pt-20 sm:pt-28"
+      className="pt-20 sm:pt-28"
       aria-label="Skills and education"
     >
       <SectionHeader

@@ -13,7 +13,7 @@ export default function GithubSection() {
   return (
     <section
       id="github"
-      className="scroll-mt-24 pt-20 sm:pt-28"
+      className="pt-20 sm:pt-28"
       aria-label="Building in public on GitHub"
     >
       <SectionHeader

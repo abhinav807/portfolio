@@ -12,7 +12,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="scroll-mt-24 pt-20 sm:pt-28"
+      className="pt-20 sm:pt-28"
       aria-label="Things I have built"
     >
       <SectionHeader
@@ -54,7 +54,7 @@ export default function ProjectsSection() {
             href="https://github.com/abhinav807"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 font-mono text-[11px] text-muted-foreground transition-colors hover:text-gold"
+            className="inline-flex items-center gap-1 py-2 font-mono text-[11px] text-muted-foreground transition-colors hover:text-gold"
           >
             all repos
             <ArrowUpRight className="size-3" aria-hidden />
@@ -87,7 +87,7 @@ export default function ProjectsSection() {
                   </p>
                 </div>
                 <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-2 pt-1">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground/80">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
                     {experiment.status}
                   </span>
                   <span className="ml-auto flex gap-3">
@@ -95,7 +95,7 @@ export default function ProjectsSection() {
                       href={experiment.repo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono text-[11px] text-foreground transition-colors hover:text-gold"
+                      className="inline-flex items-center py-2 font-mono text-[11px] text-foreground transition-colors hover:text-gold"
                     >
                       repo
                       <span className="sr-only">
@@ -108,7 +108,7 @@ export default function ProjectsSection() {
                         href={experiment.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-mono text-[11px] text-foreground transition-colors hover:text-gold"
+                        className="inline-flex items-center py-2 font-mono text-[11px] text-foreground transition-colors hover:text-gold"
                       >
                         live
                         <span className="sr-only">

@@ -18,7 +18,7 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="scroll-mt-24 pt-20 sm:pt-28"
+      className="pt-20 sm:pt-28"
       aria-label="Building and experience"
     >
       <SectionHeader
@@ -50,7 +50,7 @@ export default function ExperienceSection() {
                         {entry.role}
                       </span>
                     </span>
-                    <span className="truncate font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground/80">
+                    <span className="truncate font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
                       {entry.meta}
                     </span>
                   </span>

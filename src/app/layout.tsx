@@ -137,6 +137,7 @@ export default function RootLayout({
               </div>
               <main
                 id="main"
+                tabIndex={-1}
                 className="relative z-10 mx-auto w-full max-w-5xl px-5 pb-16 pt-10 sm:px-8 sm:pt-16"
               >
                 {children}

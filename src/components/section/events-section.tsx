@@ -11,7 +11,7 @@ export default function EventsSection() {
   return (
     <section
       id="events"
-      className="scroll-mt-24 pt-20 sm:pt-28"
+      className="pt-20 sm:pt-28"
       aria-label="Events and hackathons"
     >
       <SectionHeader
@@ -69,7 +69,7 @@ export default function EventsSection() {
                     href={event.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-fit items-center gap-1.5 font-mono text-xs text-foreground transition-colors hover:text-gold"
+                    className="inline-flex w-fit items-center gap-1.5 py-2 font-mono text-xs text-foreground transition-colors hover:text-gold"
                   >
                     event site
                     <ArrowUpRight className="size-3.5" aria-hidden />

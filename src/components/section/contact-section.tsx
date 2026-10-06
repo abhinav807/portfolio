@@ -9,7 +9,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="scroll-mt-24 pt-20 sm:pt-28"
+      className="pt-20 sm:pt-28"
       aria-label="Contact"
     >
       <BlurFade delay={BLUR_FADE_DELAY * 2}>
@@ -65,7 +65,7 @@ export default function ContactSection() {
 
             <a
               href={`mailto:${CONTACT.email}`}
-              className="font-mono text-xs text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-gold"
+              className="py-2 font-mono text-xs text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-gold"
             >
               {CONTACT.email}
             </a>

@@ -28,7 +28,7 @@ export default function SiteFooter() {
               <a
                 key={item.href}
                 href={item.href}
-                className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
+                className="py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item.label}
               </a>
@@ -43,7 +43,7 @@ export default function SiteFooter() {
                 rel={
                   social.url.startsWith("http") ? "noopener noreferrer" : undefined
                 }
-                className="inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+                className="inline-flex items-center gap-1.5 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
               >
                 <social.icon className="size-3.5" aria-hidden />
                 {social.label}

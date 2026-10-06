@@ -8,7 +8,7 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function HeroSection() {
   return (
-    <section id="home" className="scroll-mt-24" aria-label="Introduction">
+    <section id="home" aria-label="Introduction">
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
         <div className="flex flex-col gap-6">
           <BlurFade delay={BLUR_FADE_DELAY}>

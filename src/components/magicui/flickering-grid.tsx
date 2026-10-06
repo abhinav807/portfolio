@@ -163,8 +163,14 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
+    const prefersReduced =
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
     let animationFrameId: number
     let gridParams: ReturnType<typeof setupCanvas>
+    let running = false
+    let lastTime = 0
 
     const updateCanvasSize = () => {
       const newWidth = width || container.clientWidth
@@ -175,9 +181,36 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
 
     updateCanvasSize()
 
-    let lastTime = 0
+    const paintStatic = () => {
+      drawGrid(
+        ctx,
+        canvas.width,
+        canvas.height,
+        gridParams.cols,
+        gridParams.rows,
+        gridParams.squares,
+        gridParams.dpr
+      )
+    }
+
+    // Reduced motion: draw one static frame, no animation loop.
+    if (prefersReduced) {
+      paintStatic()
+      const resizeObserver = new ResizeObserver(() => {
+        updateCanvasSize()
+        paintStatic()
+      })
+      resizeObserver.observe(container)
+      return () => {
+        resizeObserver.disconnect()
+      }
+    }
+
     const animate = (time: number) => {
-      if (!isInView) return
+      if (!isInView || document.hidden) {
+        running = false
+        return
+      }
 
       const deltaTime = (time - lastTime) / 1000
       lastTime = time
@@ -195,6 +228,16 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
       animationFrameId = requestAnimationFrame(animate)
     }
 
+    const startLoop = () => {
+      if (running || document.hidden) return
+      running = true
+      animationFrameId = requestAnimationFrame(animate)
+    }
+
+    const onVisibilityChange = () => {
+      if (!document.hidden && isInView) startLoop()
+    }
+
     const resizeObserver = new ResizeObserver(() => {
       updateCanvasSize()
     })
@@ -210,14 +253,17 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
 
     intersectionObserver.observe(canvas)
 
+    document.addEventListener("visibilitychange", onVisibilityChange)
+
     if (isInView) {
-      animationFrameId = requestAnimationFrame(animate)
+      startLoop()
     }
 
     return () => {
       cancelAnimationFrame(animationFrameId)
       resizeObserver.disconnect()
       intersectionObserver.disconnect()
+      document.removeEventListener("visibilitychange", onVisibilityChange)
     }
   }, [setupCanvas, updateSquares, drawGrid, width, height, isInView])
 

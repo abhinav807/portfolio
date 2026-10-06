@@ -71,7 +71,7 @@ export default function GithubActivity() {
   return (
     <div className="flex min-w-0 flex-col gap-3">
       <div className="flex items-baseline justify-between gap-3">
-        <p className="font-mono text-xs text-muted-foreground">
+        <p className="font-mono text-xs text-muted-foreground" aria-live="polite">
           {status === "loading" || total === undefined
             ? "loading activity…"
             : `${total} contributions in the last year`}
