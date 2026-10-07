@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Check, Search, ShieldCheck, TriangleAlert } from "lucide-react";
+import { Check, ShieldCheck, TriangleAlert } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /*  Shared chrome                                                      */
@@ -164,175 +164,7 @@ export function SitePreview({
 /*  Project previews                                                   */
 /* ------------------------------------------------------------------ */
 
-function FaceVisual({ label }: { label: string }) {
-  const rows = ["08:58 · present", "08:59 · present", "09:01 · present"];
-  return (
-    <Frame>
-      <Chrome label={label} />
-      <div className="flex flex-1 gap-2 p-2.5">
-        <div className="relative flex-1 overflow-hidden rounded-lg border border-border bg-foreground/[0.06]">
-          {/* viewfinder corners */}
-          <span className="absolute left-2 top-2 h-4 w-4 border-l-2 border-t-2 border-gold/70" />
-          <span className="absolute right-2 top-2 h-4 w-4 border-r-2 border-t-2 border-gold/70" />
-          <span className="absolute bottom-2 left-2 h-4 w-4 border-b-2 border-l-2 border-gold/70" />
-          <span className="absolute bottom-2 right-2 h-4 w-4 border-b-2 border-r-2 border-gold/70" />
-
-          {/* detection boxes */}
-          <span className="absolute left-[22%] top-[26%] h-14 w-12 border border-gold/80">
-            <span className="absolute -top-4 left-0 whitespace-nowrap bg-gold px-1 font-mono text-[8px] text-background">
-              face_01
-            </span>
-          </span>
-          <span className="absolute bottom-[22%] right-[24%] h-12 w-11 border border-gold/60">
-            <span className="absolute -top-4 left-0 whitespace-nowrap bg-gold/80 px-1 font-mono text-[8px] text-background">
-              face_02
-            </span>
-          </span>
-
-          <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[9px] text-muted-foreground">
-            camera_01 · opencv · scanning
-          </span>
-        </div>
-
-        <div className="flex w-[38%] min-w-0 flex-col gap-1.5 rounded-lg border border-border bg-card/70 p-2">
-          <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground">
-            attendance
-          </span>
-          {rows.map((row) => (
-            <span
-              key={row}
-              className="flex items-center justify-between gap-1 rounded border border-border bg-background/70 px-1.5 py-1 font-mono text-[9px] text-muted-foreground"
-            >
-              {row}
-              <Check className="size-3 shrink-0 text-gold" aria-hidden />
-            </span>
-          ))}
-          <span className="mt-auto rounded border border-gold/40 bg-gold-soft px-1.5 py-1 text-center font-mono text-[9px]">
-            marking…
-          </span>
-        </div>
-      </div>
-    </Frame>
-  );
-}
-
-function MeetingVisual({ label }: { label: string }) {
-  return (
-    <Frame>
-      <Chrome label={label} />
-      <div className="flex flex-1 gap-2 p-2.5">
-        <div className="flex min-w-0 flex-1 flex-col gap-2">
-          <div className="grid flex-1 grid-cols-2 gap-2">
-            {[
-              { initials: "AG", active: true },
-              { initials: "RS", active: false },
-              { initials: "PM", active: false },
-              { initials: "+2", active: false },
-            ].map((person) => (
-              <span
-                key={person.initials}
-                className={cn(
-                  "relative grid place-items-center rounded-lg border bg-card/60 font-display text-sm",
-                  person.active ? "border-gold/60" : "border-border"
-                )}
-              >
-                {person.initials}
-                {person.active && (
-                  <span className="absolute bottom-1.5 left-1.5 flex gap-0.5" aria-hidden="true">
-                    <span className="h-2 w-0.5 animate-pulse rounded bg-gold" />
-                    <span className="h-3 w-0.5 animate-pulse rounded bg-gold/70" />
-                    <span className="h-1.5 w-0.5 animate-pulse rounded bg-gold/50" />
-                  </span>
-                )}
-              </span>
-            ))}
-          </div>
-          <div className="flex items-center justify-center gap-2 rounded-lg border border-border bg-card/70 py-1.5">
-            {[0, 1, 2].map((index) => (
-              <span
-                key={index}
-                className={cn(
-                  "grid size-6 place-items-center rounded-full border text-muted-foreground",
-                  index === 2 ? "border-red-400/50 text-red-400/80" : "border-border"
-                )}
-              >
-                <span className="size-2 rounded-sm bg-current" aria-hidden="true" />
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="flex w-[40%] min-w-0 flex-col gap-2 rounded-lg border border-border bg-card/70 p-2">
-          <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground">
-            ai notes
-          </span>
-          <Lines count={5} />
-          <span className="mt-auto flex items-end gap-1" aria-hidden="true">
-            {[6, 10, 4, 12, 8, 5, 11, 7, 9, 4, 8, 6].map((height, index) => (
-              <span
-                key={index}
-                className="w-1 rounded-sm bg-gold/60"
-                style={{ height: `${height}px` }}
-              />
-            ))}
-          </span>
-        </div>
-      </div>
-    </Frame>
-  );
-}
-
-export type VisualVariant =
-  | "face"
-  | "meeting"
-  | "legal"
-  | "shield"
-  | "commerce";
-
-function LegalVisual({ label }: { label: string }) {
-  return (
-    <Frame>
-      <Chrome label={label} />
-      <div className="flex flex-1 gap-2 p-2.5">
-        <div className="flex min-w-0 flex-1 flex-col gap-2 rounded-lg border border-border bg-card/70 p-2.5">
-          <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground">
-            document
-          </span>
-          <span className="font-display text-[11px] tracking-tight">
-            Agreement · Clause 7.2
-          </span>
-          <Lines count={3} />
-          <span className="rounded-md border border-gold/40 bg-gold-soft px-2 py-1.5 text-[9px] leading-relaxed text-foreground/80">
-            highlighted in plain English — what this clause actually means
-          </span>
-          <Lines count={2} />
-          <span className="mt-auto flex items-center gap-1.5 rounded-md border border-border bg-background/80 px-2 py-1.5">
-            <Search className="size-3 shrink-0 text-muted-foreground" aria-hidden />
-            <span className="font-mono text-[9px] text-muted-foreground">
-              ask about this document…
-            </span>
-          </span>
-        </div>
-        <div className="flex w-[34%] min-w-0 flex-col gap-1.5 rounded-lg border border-border bg-card/60 p-2">
-          <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground">
-            summary
-          </span>
-          {[0, 1, 2].map((index) => (
-            <span
-              key={index}
-              className="rounded border border-border bg-background/70 px-1.5 py-1 font-mono text-[9px] text-muted-foreground"
-            >
-              {index + 1}. key point
-            </span>
-          ))}
-          <span className="mt-auto rounded border border-red-400/40 bg-red-400/10 px-1.5 py-1 text-center font-mono text-[9px] text-red-400/90">
-            not legal advice
-          </span>
-        </div>
-      </div>
-    </Frame>
-  );
-}
+export type VisualVariant = "shield";
 
 function ShieldVisual({ label }: { label: string }) {
   return (
@@ -379,59 +211,6 @@ function ShieldVisual({ label }: { label: string }) {
   );
 }
 
-function CommerceVisual({ label }: { label: string }) {
-  const rows = [
-    { item: "Cotton Tee · M", qty: "42", tag: "in stock" },
-    { item: "Canvas Bag", qty: "17", tag: "low" },
-    { item: "Mug · 350ml", qty: "88", tag: "in stock" },
-  ];
-  return (
-    <Frame>
-      <Chrome label={label} />
-      <div className="flex flex-1 flex-col gap-2 p-2.5">
-        <div className="flex items-center justify-between rounded-md border border-border bg-card/70 px-2 py-1.5 font-mono text-[9px] text-muted-foreground">
-          <span>inventory</span>
-          <span className="text-gold">synced</span>
-        </div>
-        <div className="flex flex-col gap-1.5 rounded-lg border border-border bg-card/60 p-1.5">
-          <span className="grid grid-cols-[1fr_auto_auto] gap-2 px-1 font-mono text-[9px] uppercase tracking-wider text-muted-foreground/70">
-            <span>product</span>
-            <span>qty</span>
-            <span>status</span>
-          </span>
-          {rows.map((row) => (
-            <span
-              key={row.item}
-              className="grid grid-cols-[1fr_auto_auto] items-center gap-2 rounded border border-border bg-background/70 px-1.5 py-1 text-[9px]"
-            >
-              <span className="truncate text-muted-foreground">{row.item}</span>
-              <span className="font-mono text-foreground/80">{row.qty}</span>
-              <span
-                className={cn(
-                  "rounded px-1 font-mono",
-                  row.tag === "low"
-                    ? "bg-gold-soft text-gold"
-                    : "text-muted-foreground"
-                )}
-              >
-                {row.tag}
-              </span>
-            </span>
-          ))}
-        </div>
-        <div className="mt-auto flex flex-col items-end gap-1">
-          <span className="max-w-[75%] rounded-lg rounded-br-sm border border-border bg-card/80 px-2 py-1 text-[9px] text-muted-foreground">
-            how many canvas bags are left this week?
-          </span>
-          <span className="max-w-[75%] rounded-lg rounded-bl-sm border border-gold/40 bg-gold-soft px-2 py-1 text-[9px]">
-            17 in stock · 4 sold in the last 7 days
-          </span>
-        </div>
-      </div>
-    </Frame>
-  );
-}
-
 export function ProjectVisual({
   variant,
   label,
@@ -440,16 +219,8 @@ export function ProjectVisual({
   label: string;
 }) {
   switch (variant) {
-    case "face":
-      return <FaceVisual label={label} />;
-    case "meeting":
-      return <MeetingVisual label={label} />;
-    case "legal":
-      return <LegalVisual label={label} />;
     case "shield":
       return <ShieldVisual label={label} />;
-    case "commerce":
-      return <CommerceVisual label={label} />;
     default:
       return null;
   }

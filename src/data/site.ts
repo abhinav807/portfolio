@@ -239,43 +239,13 @@ export type Project = {
   description: string;
   tech: readonly string[];
   status: string;
-  visual:
-    | "face"
-    | "meeting"
-    | "legal"
-    | "shield"
-    | "commerce";
+  visual: "shield";
   github?: string;
   demo?: string;
-  note?: string;
   featured?: boolean;
 };
 
 export const PROJECTS: readonly Project[] = [
-  {
-    name: "GhostMeet",
-    category: "AI / Web App",
-    tagline:
-      "An AI meeting & productivity concept with automated workflows and a demo mode.",
-    description:
-      "An AI-powered meeting and productivity concept that evolved through a lot of experimentation — exploring automated meeting workflows and intelligent assistance. It ships with a Demo Mode so the product can be walked through without a live setup, and the feature set only grows once it's actually implemented.",
-    tech: ["Next.js", "TypeScript", "Supabase", "AI APIs"],
-    status: "Experimental",
-    visual: "meeting",
-    featured: true,
-  },
-  {
-    name: "AI Face Detection Attendance System",
-    category: "Computer Vision / AI",
-    tagline:
-      "Attendance that marks itself — faces in, records out.",
-    description:
-      "One of my computer-vision projects: a Python and OpenCV system that detects faces from a camera feed and turns them into attendance records, so marking attendance becomes a script instead of a manual list. Built to understand how face detection, image processing and simple automation fit together.",
-    tech: ["Python", "OpenCV", "Computer Vision"],
-    status: "Experiment",
-    visual: "face",
-    featured: true,
-  },
   {
     name: "PhishGuard",
     category: "Cybersecurity / Browser Extension",
@@ -287,18 +257,6 @@ export const PROJECTS: readonly Project[] = [
     status: "Prototype / Development",
     visual: "shield",
     github: "https://github.com/abhinav807/phishguard-ai-extension",
-    featured: true,
-  },
-  {
-    name: "ShopSaarthi",
-    category: "AI / Commerce",
-    tagline:
-      "AI-assisted inventory and product workflows for small businesses.",
-    description:
-      "An AI-assisted commerce and productivity prototype built around helping small businesses manage and interact with product and inventory information — asking questions about stock, handling routine product tasks and experimenting with agent-style workflows on top of an inventory context.",
-    tech: ["Next.js", "Supabase", "AI APIs"],
-    status: "Prototype",
-    visual: "commerce",
     featured: true,
   },
 ];

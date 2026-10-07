@@ -18,7 +18,6 @@ type Project = {
   visual: VisualVariant;
   github?: string;
   demo?: string;
-  note?: string;
 };
 
 function StatusBadge({ status }: { status: string }) {
@@ -141,12 +140,6 @@ export function ProjectCard({
             {project.description}
           </p>
         </div>
-
-        {project.note && (
-          <p className="rounded-lg border border-gold/30 bg-gold-soft px-3 py-2 font-mono text-[11px] leading-relaxed text-foreground/80">
-            {project.note}
-          </p>
-        )}
 
         <div className="flex flex-wrap gap-1.5">
           {project.tech.map((tech) => (
