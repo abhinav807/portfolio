@@ -157,23 +157,6 @@ export const HIGHLIGHTS = [
 
 export const EXPERIENCE = [
   {
-    org: "AG CodeDraft Digital",
-    role: "Founder · Web Developer",
-    meta: "Independent practice",
-    description:
-      "Building and deploying websites and digital experiences for businesses, professional services and organizations. I handle the process from design and development through deployment and maintenance.",
-    points: [
-      "Website development",
-      "Redesigns",
-      "Responsive frontend development",
-      "Deployment",
-      "Domains & DNS",
-      "Maintenance",
-      "Client communication",
-    ],
-    icon: Code2,
-  },
-  {
     org: "GoldenHour",
     role: "Founder & Organiser",
     meta: "Student technology initiative",
@@ -260,7 +243,6 @@ export type Project = {
     | "face"
     | "meeting"
     | "legal"
-    | "map"
     | "shield"
     | "commerce";
   github?: string;
@@ -271,18 +253,6 @@ export type Project = {
 
 export const PROJECTS: readonly Project[] = [
   {
-    name: "UrbanVerse",
-    category: "Maps / Civic Technology / Digital Twin",
-    tagline:
-      "A digital-twin style map of city infrastructure, timelines and environment.",
-    description:
-      "A digital-twin urban visualisation project with a Punjab-first focus: roads, infrastructure, timelines and environmental data brought into one interactive map experience. It covers road visualisation, timeline concepts, flood-zone visualisation and general urban data exploration — built on open map data rather than a proprietary provider.",
-    tech: ["Next.js", "MapLibre", "OpenStreetMap", "TypeScript", "shadcn/ui"],
-    status: "In development",
-    visual: "map",
-    featured: true,
-  },
-  {
     name: "GhostMeet",
     category: "AI / Web App",
     tagline:
@@ -292,19 +262,6 @@ export const PROJECTS: readonly Project[] = [
     tech: ["Next.js", "TypeScript", "Supabase", "AI APIs"],
     status: "Experimental",
     visual: "meeting",
-    featured: true,
-  },
-  {
-    name: "LawLens / NyayaLens AI",
-    category: "AI / Legal Technology",
-    tagline:
-      "Making legal information easier to navigate with modern interfaces and AI.",
-    description:
-      "An AI-powered legal technology prototype exploring how modern interfaces and AI can make legal information easier to navigate — searching, reading and understanding documents without wading through jargon.",
-    note: "Prototype for educational and product exploration purposes; not legal advice.",
-    tech: ["Next.js", "AI", "Modern web stack"],
-    status: "Prototype / Demo",
-    visual: "legal",
     featured: true,
   },
   {

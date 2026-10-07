@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Check, Play, Search, ShieldCheck, TriangleAlert } from "lucide-react";
+import { Check, Search, ShieldCheck, TriangleAlert } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /*  Shared chrome                                                      */
@@ -164,94 +164,6 @@ export function SitePreview({
 /*  Project previews                                                   */
 /* ------------------------------------------------------------------ */
 
-function MapVisual({ label }: { label: string }) {
-  return (
-    <Frame>
-      <Chrome label={label} />
-      <div className="relative flex-1">
-        <svg
-          viewBox="0 0 400 220"
-          preserveAspectRatio="xMidYMid slice"
-          className="absolute inset-0 h-full w-full"
-          aria-hidden="true"
-        >
-          {/* flood / low-lying zone */}
-          <path
-            d="M0 150 C 70 132, 130 168, 200 150 S 330 130, 400 156 L400 220 L0 220 Z"
-            className="fill-gold/15 stroke-gold/40"
-            strokeWidth="1"
-          />
-          {/* water body */}
-          <path
-            d="M-10 60 C 60 74, 120 40, 190 56 S 320 84, 410 62"
-            className="stroke-sky-500/40"
-            strokeWidth="7"
-            fill="none"
-            strokeLinecap="round"
-          />
-          {/* arterial roads */}
-          <path
-            d="M20 0 L60 220"
-            className="stroke-foreground/30"
-            strokeWidth="3"
-            fill="none"
-          />
-          <path
-            d="M0 120 L400 96"
-            className="stroke-foreground/30"
-            strokeWidth="3"
-            fill="none"
-          />
-          <path
-            d="M150 0 C 170 70, 240 90, 300 220"
-            className="stroke-foreground/25"
-            strokeWidth="3"
-            fill="none"
-          />
-          {/* minor streets */}
-          <path
-            d="M90 0 L120 220 M240 0 L265 220 M0 40 L400 26 M0 180 L400 168"
-            className="stroke-foreground/15"
-            strokeWidth="1.5"
-            fill="none"
-          />
-          {/* markers */}
-          <g>
-            <circle cx="118" cy="96" r="5" className="fill-gold" />
-            <circle cx="118" cy="96" r="10" className="stroke-gold/40" strokeWidth="1.5" fill="none" />
-            <circle cx="286" cy="132" r="5" className="fill-gold" />
-            <circle cx="286" cy="132" r="10" className="stroke-gold/40" strokeWidth="1.5" fill="none" />
-            <circle cx="332" cy="54" r="4" className="fill-foreground/60" />
-            <circle cx="62" cy="176" r="4" className="fill-foreground/60" />
-          </g>
-        </svg>
-
-        <span className="absolute left-3 top-3 rounded-md border border-border bg-card/85 px-2 py-1 font-mono text-[9px] text-muted-foreground backdrop-blur-sm">
-          Punjab · digital twin
-        </span>
-        <span className="absolute right-3 top-3 flex flex-col gap-1 rounded-md border border-border bg-card/85 p-1.5 font-mono text-[9px] text-muted-foreground backdrop-blur-sm">
-          <span className="flex items-center gap-1.5">
-            <span className="size-2 rounded-sm bg-gold" /> flood zone
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="size-2 rounded-sm bg-foreground/40" /> roads
-          </span>
-        </span>
-
-        <div className="absolute inset-x-3 bottom-3 flex items-center gap-2 rounded-lg border border-border bg-card/90 px-2.5 py-1.5 backdrop-blur-sm">
-          <span className="grid size-5 shrink-0 place-items-center rounded-full border border-border text-muted-foreground">
-            <Play className="size-2.5 fill-current" aria-hidden />
-          </span>
-          <span className="relative h-1 flex-1 rounded-full bg-foreground/15">
-            <span className="absolute left-[38%] top-1/2 size-2.5 -translate-y-1/2 rounded-full bg-gold" />
-          </span>
-          <span className="font-mono text-[9px] text-muted-foreground">2016 → 2026</span>
-        </div>
-      </div>
-    </Frame>
-  );
-}
-
 function FaceVisual({ label }: { label: string }) {
   const rows = ["08:58 · present", "08:59 · present", "09:01 · present"];
   return (
@@ -374,7 +286,6 @@ export type VisualVariant =
   | "face"
   | "meeting"
   | "legal"
-  | "map"
   | "shield"
   | "commerce";
 
@@ -529,8 +440,6 @@ export function ProjectVisual({
   label: string;
 }) {
   switch (variant) {
-    case "map":
-      return <MapVisual label={label} />;
     case "face":
       return <FaceVisual label={label} />;
     case "meeting":
