@@ -202,7 +202,7 @@ export const WEBSITES = [
     url: "https://vkglawfirm.co.in/",
     status: "Live",
     description:
-      "Designed and deployed a professional website for Vikas Verma, A.O.R., Supreme Court of India, with a professional legal-services presentation and appropriate legal disclaimer flow.",
+      "Designed and deployed the website for VKG Law Firm, founded by Dr. Vinod Kumar Goyal, Advocate — a service and research-based counselling law firm with practice areas, legal articles and consultation flows.",
     tags: ["Design", "Development", "Deployment"],
     visual: "legal" as const,
   },

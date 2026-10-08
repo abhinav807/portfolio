@@ -148,7 +148,7 @@ export function SitePreview({
         <div className="flex min-w-0 flex-1 flex-col gap-2">
           <span className="flex items-center gap-1.5 rounded-md border border-border bg-card/60 px-2 py-1 font-mono text-[9px] text-muted-foreground">
             <ShieldCheck className="size-3 text-gold" aria-hidden />
-            A.O.R. · Supreme Court of India
+            Dr. Vinod Kumar Goyal · Advocate
           </span>
           <Lines count={3} />
           <span className="mt-auto rounded-md border border-gold/40 bg-gold-soft px-2 py-1.5 font-mono text-[9px] text-foreground/80">
