@@ -371,17 +371,6 @@ export const EVENTS = [
     icon: Sunset,
   },
   {
-    title: "AgentForge",
-    role: "Participant",
-    location: "Gurugram, India",
-    when: "Hackathon / build event",
-    status: "",
-    description:
-      "A builders' event focused on AI agents and agentic workflows — a good excuse to ship something with modern AI tooling in a room full of people doing the same.",
-    href: "",
-    icon: Bot,
-  },
-  {
     title: "Agentathon · Nerds Room",
     role: "Participant",
     location: "Delhi NCR, India",
