@@ -5,10 +5,14 @@ import {
   Code2,
   Compass,
   Globe,
+  GraduationCap,
   MonitorSmartphone,
   ScanEye,
   Sparkles,
+  Sunset,
   Terminal,
+  Trophy,
+  Zap,
 } from "lucide-react";
 import { Icons } from "@/components/icons";
 
@@ -356,6 +360,17 @@ export const EVENTS = [
     icon: CalendarDays,
   },
   {
+    title: "FallingSun Hackathon",
+    role: "Participant",
+    location: "Venue TBA",
+    when: "24–25 October 2026",
+    status: "Upcoming",
+    description:
+      "A hackathon on 24–25 October 2026 — venue still to be announced.",
+    href: "",
+    icon: Sunset,
+  },
+  {
     title: "AgentForge",
     role: "Participant",
     location: "Gurugram, India",
@@ -376,6 +391,38 @@ export const EVENTS = [
       "A community technology event around AI agents and building — the kind of room where you learn more in one evening than in a week of tutorials.",
     href: "",
     icon: Sparkles,
+  },
+  {
+    title: "AICD × IRONLABS AI Hackathon",
+    role: "Participant",
+    location: "Delhi, India",
+    when: "June 2026",
+    status: "",
+    description:
+      "Placed 3rd at the AICD × IRONLABS AI hackathon in Delhi.",
+    href: "",
+    icon: Trophy,
+  },
+  {
+    title: "Codestorm",
+    role: "Participant",
+    location: "Gurugram, India",
+    when: "May 2026",
+    status: "",
+    description:
+      "A hackathon in Gurugram, hosted at ThoughtWorks Technologies.",
+    href: "",
+    icon: Zap,
+  },
+  {
+    title: "AI in Age of ETDs",
+    role: "Participant",
+    location: "IIT Delhi, India",
+    when: "22 May 2026",
+    status: "",
+    description: "My first-ever technology event, at IIT Delhi.",
+    href: "",
+    icon: GraduationCap,
   },
 ] as const;
 
