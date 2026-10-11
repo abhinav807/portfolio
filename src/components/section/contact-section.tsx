@@ -63,12 +63,21 @@ export default function ContactSection() {
               ))}
             </div>
 
-            <a
-              href={`mailto:${CONTACT.email}`}
-              className="py-2 font-mono text-xs text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-gold"
-            >
-              {CONTACT.email}
-            </a>
+            <div className="flex flex-col items-center gap-1">
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="py-2 font-mono text-xs text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-gold"
+              >
+                {CONTACT.email}
+              </a>
+              <a
+                href={`mailto:${CONTACT.goldenHourEmail}`}
+                className="py-2 font-mono text-xs text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-gold"
+              >
+                <span className="no-underline">GoldenHour — </span>
+                {CONTACT.goldenHourEmail}
+              </a>
+            </div>
           </div>
         </div>
       </BlurFade>

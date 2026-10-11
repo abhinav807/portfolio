@@ -64,6 +64,12 @@ export default function SiteFooter() {
             >
               Terms
             </Link>
+            <Link
+              href="/support"
+              className="py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Support
+            </Link>
           </div>
           <p className="pt-2 text-xs text-muted-foreground md:text-right">
             Copyright © 2026 {SITE.name}

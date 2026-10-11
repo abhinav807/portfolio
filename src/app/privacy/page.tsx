@@ -99,10 +99,10 @@ export default function PrivacyPage() {
             If this policy changes, this page is updated. Questions about your
             data can be sent to{" "}
             <a
-              href="mailto:goldenhourdelhi@gmail.com"
+              href="mailto:abhinavgoyal300@gmail.com"
               className="text-foreground underline underline-offset-4 hover:text-gold"
             >
-              goldenhourdelhi@gmail.com
+              abhinavgoyal300@gmail.com
             </a>
             .
           </p>

@@ -28,7 +28,8 @@ export const SITE = {
   role: "Student builder, developer & founder building with code, AI and the web.",
   location: "Delhi NCR, India",
   locationShort: "Delhi, India",
-  email: "goldenhourdelhi@gmail.com",
+  email: "abhinavgoyal300@gmail.com",
+  goldenHourEmail: "hello@goldenhourdelhi.co.in",
   url: "https://abhinavgoyal.vercel.app",
   github: "https://github.com/abhinav807",
   githubUsername: "abhinav807",
@@ -495,9 +496,15 @@ export const CONTACT = {
   heading: "Have an idea worth building?",
   body: "I'm always interested in interesting projects, collaborations, technology events and things worth experimenting with.",
   email: SITE.email,
+  goldenHourEmail: SITE.goldenHourEmail,
   links: [
     { label: "GitHub", href: SITE.github, icon: Icons.github },
     { label: "LinkedIn", href: SITE.linkedin, icon: Icons.linkedin },
     { label: "Email", href: `mailto:${SITE.email}`, icon: Icons.email },
+    {
+      label: "GoldenHour",
+      href: `mailto:${SITE.goldenHourEmail}`,
+      icon: Icons.email,
+    },
   ],
 };

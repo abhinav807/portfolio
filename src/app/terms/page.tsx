@@ -97,10 +97,10 @@ export default function TermsPage() {
           <p className="mt-2">
             These terms may be updated on this page. Questions can be sent to{" "}
             <a
-              href="mailto:goldenhourdelhi@gmail.com"
+              href="mailto:abhinavgoyal300@gmail.com"
               className="text-foreground underline underline-offset-4 hover:text-gold"
             >
-              goldenhourdelhi@gmail.com
+              abhinavgoyal300@gmail.com
             </a>
             .
           </p>
